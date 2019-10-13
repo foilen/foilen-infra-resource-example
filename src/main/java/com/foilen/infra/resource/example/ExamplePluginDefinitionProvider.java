@@ -78,6 +78,8 @@ public class ExamplePluginDefinitionProvider implements IPPluginDefinitionProvid
         pluginDefinitionV1.addTimer(loggingTimerEventHandler, "20 seconds timer", Calendar.SECOND, 20);
         pluginDefinitionV1.addTimer(loggingTimerEventHandler, "1 minute timer", Calendar.MINUTE, 1);
 
+        pluginDefinitionV1.addChangesHandler(new JunitDynamicChangesHandler());
+
         return pluginDefinitionV1;
     }
 
