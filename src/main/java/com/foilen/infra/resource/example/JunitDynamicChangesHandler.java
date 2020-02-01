@@ -24,19 +24,19 @@ public class JunitDynamicChangesHandler implements ChangesEventHandler {
 
     private static List<ChangesEventHandler> dynamicChangesEventHandlers = new ArrayList<>();
 
-    @Override
-    public List<ActionHandler> computeActionsToExecute(CommonServicesContext services, ChangesInTransactionContext changesInTransactionContext) {
-        List<ActionHandler> actions = new ArrayList<>();
-        dynamicChangesEventHandlers.forEach(ceh -> actions.addAll(ceh.computeActionsToExecute(services, changesInTransactionContext)));
-        return actions;
-    }
-
     public static List<ChangesEventHandler> getDynamicChangesEventHandlers() {
         return dynamicChangesEventHandlers;
     }
 
     public static void setDynamicChangesEventHandlers(List<ChangesEventHandler> dynamicChangesEventHandlers) {
         JunitDynamicChangesHandler.dynamicChangesEventHandlers = dynamicChangesEventHandlers;
+    }
+
+    @Override
+    public List<ActionHandler> computeActionsToExecute(CommonServicesContext services, ChangesInTransactionContext changesInTransactionContext) {
+        List<ActionHandler> actions = new ArrayList<>();
+        dynamicChangesEventHandlers.forEach(ceh -> actions.addAll(ceh.computeActionsToExecute(services, changesInTransactionContext)));
+        return actions;
     }
 
 }
