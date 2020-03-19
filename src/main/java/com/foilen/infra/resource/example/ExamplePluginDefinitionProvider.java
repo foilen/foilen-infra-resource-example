@@ -31,6 +31,9 @@ public class ExamplePluginDefinitionProvider implements IPPluginDefinitionProvid
         pluginDefinitionV1.addCustomResource(Ex1Resource.class, "Exemple 1", //
                 Arrays.asList("name"), //
                 Arrays.asList("year"));
+        pluginDefinitionV1.addCustomResource(Ex2Resource.class, "Exemple 2", //
+                Arrays.asList("id"), //
+                Arrays.asList("year"));
         pluginDefinitionV1.addCustomResource(EmployeeResource.class, "Employee", //
                 Arrays.asList("firstName", "lastName"), //
                 Arrays.asList("birthday"));
